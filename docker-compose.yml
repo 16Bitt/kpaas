@@ -1,0 +1,12 @@
+version: '3'
+services:
+  kpaas:
+    container_name: kpaas
+    build: .
+    volumes:
+    - ".:/app"
+    ports:
+    - "8000:8000"
+    tty: true
+    stdin_open: true
+    command: ["bundle", "exec", "rackup", "-p", "8000", "-o", "0.0.0.0"]
